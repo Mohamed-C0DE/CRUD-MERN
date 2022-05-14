@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [foodName, setFoodName] = useState("");
+  const [days, setDays] = useState(0);
+
   return (
     <div className="App">
       <header>
@@ -8,9 +12,19 @@ function App() {
       </header>
       <main>
         <label>Food Name:</label>
-        <input type="text" />
+        <input
+          type="text"
+          onChange={(e) => {
+            setFoodName(e.target.value);
+          }}
+        />
         <label>Days Since You Ate It:</label>
-        <input type="number" />
+        <input
+          type="number"
+          onChange={(e) => {
+            setDays(e.target.value);
+          }}
+        />
         <button>Add To List</button>
       </main>
     </div>
