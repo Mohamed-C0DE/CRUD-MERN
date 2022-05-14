@@ -1,9 +1,17 @@
 import { useState } from "react";
+import axios from "axios";
 import "./App.css";
 
 function App() {
   const [foodName, setFoodName] = useState("");
   const [days, setDays] = useState(0);
+
+  const addToList = () => {
+    axios.post("http://localhost:3001/insert", {
+      foodName: foodName,
+      days: days,
+    });
+  };
 
   return (
     <div className="App">
@@ -25,7 +33,7 @@ function App() {
             setDays(e.target.value);
           }}
         />
-        <button>Add To List</button>
+        <button onClick={addToList}>Add To List</button>
       </main>
     </div>
   );
