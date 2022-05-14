@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
 function App() {
   const [foodName, setFoodName] = useState("");
   const [days, setDays] = useState(0);
+  const [foodList, setFoodList] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/read")
+      .then((res) => {
+        setFoodList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const addToList = () => {
     axios.post("http://localhost:3001/insert", {
@@ -34,6 +46,17 @@ function App() {
           }}
         />
         <button onClick={addToList}>Add To List</button>
+
+        <h2>Food List:</h2>
+        {foodList.map((val, key) => {
+          return (
+            <div>
+              {" "}
+              <h3>{val.foodName}</h3>
+              <h3>{val.daysSinceIAte}</h3>
+            </div>
+          );
+        })}
       </main>
     </div>
   );
