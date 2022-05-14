@@ -11,6 +11,7 @@ function App() {
         <input type="text" />
         <label>Days Since You Ate It:</label>
         <input type="number" />
+        <button>Add To List</button>
       </main>
     </div>
   );
