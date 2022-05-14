@@ -16,6 +16,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+    // Adding foodList below will cause page to rerender when new data is added to database
   }, [foodList]);
 
   const addToList = () => {
