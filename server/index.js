@@ -1,11 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
-
 const FoodModel = require("./models/Food");
 
+// middleware
 app.use(express.json());
+app.use(cors());
 
+// database connection
 mongoose.connect(
   "mongodb+srv://newUser:znLwldaFTsJcP4Rt@crud.24e1n.mongodb.net/food?retryWrites=true&w=majority",
   {
