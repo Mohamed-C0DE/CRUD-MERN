@@ -13,8 +13,11 @@ mongoose.connect(
   }
 );
 
-app.get("/", async (req, res) => {
-  const food = new FoodModel({ foodName: "Apple", daysSinceIAte: 3 });
+app.post("/insert", async (req, res) => {
+  const foodName = req.body.foodName;
+  const days = req.body.days;
+
+  const food = new FoodModel({ foodName: foodName, daysSinceIAte: days });
 
   try {
     await food.save();
