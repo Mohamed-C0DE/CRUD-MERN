@@ -50,7 +50,7 @@ function App() {
         <h2>Food List:</h2>
         {foodList.map((val, key) => {
           return (
-            <div>
+            <div key={key}>
               {" "}
               <h3>{val.foodName}</h3>
               <h3>{val.daysSinceIAte}</h3>
