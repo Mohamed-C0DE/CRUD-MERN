@@ -16,7 +16,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [foodList]);
 
   const addToList = () => {
     axios.post("http://localhost:3001/insert", {
