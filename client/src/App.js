@@ -55,6 +55,7 @@ function App() {
               {" "}
               <h3>{val.foodName}</h3>
               <h3>{val.daysSinceIAte}</h3>
+              <button>Delete</button>
             </div>
           );
         })}
