@@ -42,3 +42,18 @@ app.get("/read", async (req, res) => {
 app.listen(3001, () => {
   console.log("Server running on PORT 3001");
 });
+
+app.put("/update", async (req, res) => {
+  const newFoodName = req.body.newFoodName;
+  const id = req.body.id;
+
+  try {
+    await FoodModel.findById(id, (updatedFood) => {
+      updatedFood.foodName = newFoodName;
+      updatedFood.save();
+      res.send("updated");
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
