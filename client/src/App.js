@@ -6,6 +6,7 @@ function App() {
   const [foodName, setFoodName] = useState("");
   const [days, setDays] = useState(0);
   const [foodList, setFoodList] = useState([]);
+  const [newFoodName, setNewFoodName] = useState("");
 
   useEffect(() => {
     axios
@@ -55,7 +56,13 @@ function App() {
               {" "}
               <h3>{val.foodName}</h3>
               <h3>{val.daysSinceIAte}</h3>
-              <input type="text" placeholder="New Food Name..." />
+              <input
+                type="text"
+                placeholder="New Food Name..."
+                onChange={(e) => {
+                  setNewFoodName(e.target.value);
+                }}
+              />
               <button>Update</button>
               <button>Delete</button>
             </div>
