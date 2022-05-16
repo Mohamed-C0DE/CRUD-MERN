@@ -27,6 +27,13 @@ function App() {
     });
   };
 
+  const updateFood = (id) => {
+    axios.put("http://localhost:3001/update", {
+      id: id,
+      newFoodName: newFoodName,
+    });
+  };
+
   return (
     <div className="App">
       <header>
@@ -63,7 +70,7 @@ function App() {
                   setNewFoodName(e.target.value);
                 }}
               />
-              <button>Update</button>
+              <button onClick={() => updateFood(val._id)}>Update</button>
               <button>Delete</button>
             </div>
           );
