@@ -34,6 +34,10 @@ function App() {
     });
   };
 
+  const deleteFood = (id) => {
+    axios.delete(`http://localhost:3001/delete/${id}`);
+  };
+
   return (
     <div className="App">
       <header>
@@ -71,7 +75,7 @@ function App() {
                 }}
               />
               <button onClick={() => updateFood(val._id)}>Update</button>
-              <button>Delete</button>
+              <button onClick={() => deleteFood(val._id)}>Delete</button>
             </div>
           );
         })}
