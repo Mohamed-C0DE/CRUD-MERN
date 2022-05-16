@@ -57,3 +57,10 @@ app.put("/update", async (req, res) => {
     console.log(err);
   }
 });
+
+app.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+
+  await FoodModel.findByIdAndRemove(id).exec();
+  res.send("deleted");
+});
